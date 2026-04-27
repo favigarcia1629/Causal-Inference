@@ -4,7 +4,7 @@
 
 > The naive comparison said yes. The DiD said no. Methodology changed the conclusion entirely.
 
-🔗 **[Live Interactive Dashboard](#)** *(link added after Streamlit deployment)*
+🔗 **[Live Interactive Dashboard](https://causal-inference-3jvucuhe5852pyf8fmaah2.streamlit.app)**
 
 ---
 
