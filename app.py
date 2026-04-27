@@ -138,17 +138,23 @@ with tab1:
             name=group, line=dict(color=color, width=2.5),
             hovertemplate="%{y:.2f}%<extra>" + group + "</extra>",
         ))
-    fig.add_vline(x="2014-01-01", line_dash="dash", line_color="#FFD700",
-                  line_width=2, annotation_text="Min Wage Increase (Jan 2014)",
-                  annotation_font_color="#FFD700")
+    fig.add_shape(type="line", x0="2014-01-01", x1="2014-01-01",
+                  y0=0, y1=1, yref="paper",
+                  line=dict(color="#FFD700", width=2, dash="dash"))
+    fig.add_annotation(x="2014-01-01", y=0.98, yref="paper",
+                       text="Min Wage Increase (Jan 2014)",
+                       font=dict(color="#FFD700", size=11),
+                       showarrow=False, xanchor="left", bgcolor="rgba(0,0,0,0.3)")
     fig.add_vrect(x0="2012-01-01", x1="2014-01-01",
-                  fillcolor="rgba(33,150,243,0.05)", line_width=0,
-                  annotation_text="Pre-Policy", annotation_position="top left",
-                  annotation_font_color="#AAAAAA")
+                  fillcolor="rgba(33,150,243,0.05)", line_width=0)
+    fig.add_annotation(x="2012-06-01", y=0.98, yref="paper",
+                       text="Pre-Policy", font=dict(color="#AAAAAA", size=10),
+                       showarrow=False)
     fig.add_vrect(x0="2014-01-01", x1="2016-12-01",
-                  fillcolor="rgba(231,76,60,0.05)", line_width=0,
-                  annotation_text="Post-Policy", annotation_position="top left",
-                  annotation_font_color="#AAAAAA")
+                  fillcolor="rgba(231,76,60,0.05)", line_width=0)
+    fig.add_annotation(x="2015-01-01", y=0.98, yref="paper",
+                       text="Post-Policy", font=dict(color="#AAAAAA", size=10),
+                       showarrow=False)
     fig.update_layout(
         template="plotly_dark", height=460,
         yaxis_title="Average Unemployment Rate (%)", xaxis_title="",
@@ -252,7 +258,8 @@ with tab3:
             marker=dict(color=color, size=12),
             name=label, showlegend=False,
         ))
-    fig.add_vline(x=0, line_dash="dash", line_color="#555", line_width=1.5)
+    fig.add_shape(type="line", x0=0, x1=0, y0=0, y1=1, yref="paper",
+                  line=dict(color="#555555", width=1.5, dash="dash"))
     fig.update_layout(
         template="plotly_dark", height=300,
         xaxis_title="Effect on Unemployment Rate (percentage points)",
@@ -296,7 +303,9 @@ with tab5:
             opacity=0.7,
             hovertemplate=f"{col}: %{{y:.1f}}%<extra></extra>",
         ))
-    fig.add_vline(x="2014-01-01", line_dash="dash", line_color="#FFD700", line_width=2)
+    fig.add_shape(type="line", x0="2014-01-01", x1="2014-01-01",
+                  y0=0, y1=1, yref="paper",
+                  line=dict(color="#FFD700", width=2, dash="dash"))
     fig.update_layout(
         template="plotly_dark", height=450,
         yaxis_title="Unemployment Rate (%)", xaxis_title="",
