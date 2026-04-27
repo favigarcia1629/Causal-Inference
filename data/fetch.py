@@ -73,6 +73,12 @@ MIN_WAGE_INCREASES = {
 def _get_fred() -> Fred:
     key = os.getenv("FRED_API_KEY")
     if not key:
+        try:
+            import streamlit as st
+            key = st.secrets["fred"]["api_key"]
+        except Exception:
+            pass
+    if not key:
         raise EnvironmentError(
             "FRED_API_KEY not set. Add it to .env or Streamlit secrets."
         )
